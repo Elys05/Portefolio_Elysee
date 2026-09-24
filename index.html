@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elysée Dètondji AVOGBE — Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bleu:#1A3A5C;--bleu2:#2563A8;--or:#B7860B;--vert:#1A5C38;
+  --bg:#F8F9FB;--surface:#FFFFFF;--border:#E2E8F0;
+  --text:#1C2833;--muted:#5D6D7E;--light:#EDF2F7;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+
+nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 1rem}
+.nav-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-brand{font-weight:600;font-size:15px;color:var(--bleu)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;padding:6px 10px;border-radius:6px;transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--light);color:var(--bleu)}
+
+.hero{background:linear-gradient(135deg,var(--bleu) 0%,var(--bleu2) 100%);color:#fff;padding:3rem 1rem 2.5rem}
+.hero-inner{max-width:780px;margin:0 auto}
+.avatar{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:600;margin-bottom:1.2rem;border:2px solid rgba(255,255,255,.35)}
+.hero h1{font-size:26px;font-weight:600;margin-bottom:.3rem}
+.hero-role{font-size:14px;opacity:.85;margin-bottom:1rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.4rem}
+.tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:12px;padding:4px 10px;border-radius:20px}
+.tag.or{background:rgba(183,134,11,.25);border-color:rgba(183,134,11,.5)}
+.hero-contacts{display:flex;flex-direction:column;gap:6px;font-size:13px;opacity:.9}
+.hero-contacts span{display:flex;align-items:center;gap:6px}
+.hero-contacts i{font-size:15px}
+.btn-cv{display:inline-flex;align-items:center;gap:6px;margin-top:1.2rem;background:#fff;color:var(--bleu);font-size:13px;font-weight:600;padding:8px 16px;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+.btn-cv i{font-size:16px}
+
+section{padding:2rem 1rem}
+.section-inner{max-width:780px;margin:0 auto}
+.section-title{font-size:17px;font-weight:600;color:var(--bleu);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px;padding-bottom:.5rem;border-bottom:2px solid var(--or)}
+.section-title i{font-size:20px;color:var(--or)}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.8rem}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.3rem}
+.card-title{font-weight:600;font-size:14px;color:var(--text);flex:1}
+.card-date{font-size:12px;color:var(--muted);white-space:nowrap;background:var(--light);padding:2px 8px;border-radius:20px}
+.card-sub{font-size:13px;color:var(--bleu2);margin-bottom:.4rem}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.card-desc li{margin-left:1.1rem;margin-bottom:2px}
+.badge-new{background:#FEF9EC;color:#856A00;font-size:11px;padding:2px 7px;border-radius:10px;border:1px solid #F5D87A;font-weight:600}
+
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.skill-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem}
+.skill-block-title{font-size:12px;font-weight:600;color:var(--bleu);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.5px}
+.skill-pill{display:inline-flex;align-items:center;gap:4px;background:var(--light);color:var(--text);font-size:12px;padding:3px 9px;border-radius:16px;margin:2px 2px 2px 0}
+
+.certs{display:flex;flex-direction:column;gap:.7rem}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem;display:flex;align-items:center;gap:12px}
+.cert-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.cert-icon.vert{background:#E6F4EC;color:var(--vert)}
+.cert-icon.bleu{background:#EBF0F8;color:var(--bleu)}
+.cert-icon.or{background:#FEF9EC;color:var(--or)}
+.cert-info{flex:1}
+.cert-name{font-weight:600;font-size:13px;color:var(--text)}
+.cert-org{font-size:12px;color:var(--muted)}
+.cert-date{font-size:11px;color:var(--muted);background:var(--light);padding:2px 7px;border-radius:10px;white-space:nowrap}
+
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.8rem}
+.project-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:.5rem}
+.project-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pi-vert{background:#E6F4EC;color:var(--vert)}
+.pi-bleu{background:#EBF0F8;color:var(--bleu)}
+.pi-or{background:#FEF9EC;color:var(--or)}
+.project-name{font-weight:600;font-size:14px;color:var(--text)}
+.project-tech{font-size:12px;color:var(--muted)}
+.project-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:.6rem}
+.tech-tags{display:flex;flex-wrap:wrap;gap:5px}
+.tech-tag{font-size:11px;background:var(--light);color:var(--bleu);padding:2px 8px;border-radius:10px;border:1px solid var(--border)}
+
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
+.contact-row{display:flex;align-items:center;gap:10px;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text)}
+.contact-row:last-child{border-bottom:none}
+.contact-row i{font-size:18px;color:var(--bleu);width:22px;text-align:center}
+.contact-row a{color:var(--bleu2);text-decoration:none}
+
+footer{text-align:center;padding:1.5rem 1rem;font-size:12px;color:var(--muted);background:var(--surface);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">E. AVOGBE</span>
+    <div class="nav-links">
+      <a href="#profil">Profil</a>
+      <a href="#competences">Compétences</a>
+      <a href="#experiences">Parcours</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero" id="profil">
+  <div class="hero-inner">
+    <div class="avatar">EA</div>
+    <h1>Elysée Dètondji AVOGBE</h1>
+    <div class="hero-role">Enseignant de Mathématiques · Développeur Web · Marketing Digital</div>
+    <div class="hero-tags">
+      <span class="tag">BAPES 2025</span>
+      <span class="tag">Licence Maths-Info · UNSTIM</span>
+      <span class="tag or">Certifié Marketing Digital</span>
+      <span class="tag">FORCE-N · Mastercard Foundation</span>
+    </div>
+    <div class="hero-contacts">
+      <span><i class="ti ti-map-pin"></i>Natitingou, Bénin</span>
+      <span><i class="ti ti-phone"></i>(+229) 01 54 01 10 40 / 01 68 45 56 25</span>
+      <span><i class="ti ti-mail"></i>elyseeavogbe03@gmail.com</span>
+    </div>
+    <a class="btn-cv" href="cv_general_avogbe.pdf" download>
+      <i class="ti ti-download"></i>Télécharger mon CV
+    </a>
+  </div>
+</div>
+
+<section id="experiences">
+  <div class="section-inner">
+    <div class="section-title"><i class="ti ti-briefcase" aria-hidden="true"></i>Parcours professionnel</div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Répétiteur à domicile — Mathématiques</div>
+        <span class="card-date">Sept. 2026 — en cours</span>
+      </div>
+      <div class="card-sub">Natitingou, Bénin <span class="badge-new">Actuel</span></div>
+      <div class="card-desc">Accompagnement personnalisé d'apprenants du collège et du lycée. Adaptation des méthodes selon les profils et les difficultés de chaque élève.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Enseignant de Mathématiques — Stage volontaire</div>
+        <span class="card-date">Nov. 2025 — Mai 2026</span>
+      </div>
+      <div class="card-sub">CEG Saint Augustin, Natitingou · Secteur privé</div>
+      <div class="card-desc"><ul>
+        <li>Prise en charge autonome de classes de 3ème et 1ère</li>
+        <li>Conception de séquences pédagogiques et supports adaptés</li>
+        <li>Séances de remédiation et suivi individualisé</li>
+        <li>Initiative personnelle — effectuée après l'obtention du diplôme</li>
+      </ul></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Enseignant — Stage de professionnalisation</div>
+        <span class="card-date">2024 — 2025</span>
+      </div>
+      <div class="card-sub">CEG 1 Natitingou · Tuteur : M. MEDOKPONOU S. Thomas</div>
+      <div class="card-desc"><ul>
+        <li>Plus de 120 élèves encadrés dans 8 classes (5ème → Terminale)</li>
+        <li>Utilisation de GeoGebra pour la visualisation interactive</li>
+        <li>Participation aux conseils de classe et réunions pédagogiques</li>
+      </ul></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Stagiaire formateur — Stage de consolidation</div>
+        <span class="card-date">2024</span>
+      </div>
+      <div class="card-sub">CEG 1 Bembèrèke · Tuteur : M. Vincent KADOTE</div>
+      <div class="card-desc">Animation de séances pour 5 niveaux différents (6ème à Terminale). Observation et analyse critique de pratiques pédagogiques.</div>
+    </div>
+
+    <div class="section-title" style="margin-top:1.5rem"><i class="ti ti-school" aria-hidden="true"></i>Formation</div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Licence Professionnelle — Mathématiques & Informatique · BAPES</div>
+        <span class="card-date">2021 — 2025</span>
+      </div>
+      <div class="card-sub">UNSTIM — École Normale Supérieure de Natitingou · Mention Assez Bien (13,37/20)</div>
+      <div class="card-desc">Algèbre linéaire, probabilités, statistiques, algorithmique, bases de données, didactique des mathématiques, pédagogie différenciée, LaTeX scientifique.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Baccalauréat Scientifique</div>
+        <span class="card-date">2021</span>
+      </div>
+      <div class="card-sub">CEG 1 Parakou — CEG Hubert C. MAGA</div>
+    </div>
+  </div>
+</section>
+
+<section id="competences" style="background:var(--surface)">
+  <div class="section-inner">
+    <div class="section-title"><i class="ti ti-code" aria-hidden="true"></i>Compétences</div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="skill-block-title">Enseignement</div>
+        <span class="skill-pill">Pédagogie différenciée</span>
+        <span class="skill-pill">Gestion de classe</span>
+        <span class="skill-pill">GeoGebra</span>
+        <span class="skill-pill">Graphmatica</span>
+        <span class="skill-pill">Évaluation</span>
+        <span class="skill-pill">Remédiation</span>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Développement Web</div>
+        <span class="skill-pill">PHP procédural</span>
+        <span class="skill-pill">Laravel 11</span>
+        <span class="skill-pill">MySQL</span>
+        <span class="skill-pill">HTML/CSS</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Git</span>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Marketing Digital</div>
+        <span class="skill-pill">Stratégie de contenu</span>
+        <span class="skill-pill">Réseaux sociaux</span>
+        <span class="skill-pill">Acquisition client</span>
+        <span class="skill-pill">Communication</span>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Mathématiques & Outils</div>
+        <span class="skill-pill">Algèbre linéaire</span>
+        <span class="skill-pill">Probabilités</span>
+        <span class="skill-pill">Statistiques</span>
+        <span class="skill-pill">LaTeX</span>
+        <span class="skill-pill">Python (bases)</span>
+        <span class="skill-pill">Pack Office</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-title"><i class="ti ti-certificate" aria-hidden="true"></i>Certifications</div>
+    <div class="certs">
+      <div class="cert-card">
+        <div class="cert-icon vert"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+        <div class="cert-info">
+          <div class="cert-name">Marketing Digital</div>
+          <div class="cert-org">Programme FORCE-N · ADPME Bénin · Mastercard Foundation</div>
+        </div>
+        <div class="cert-date">Sept. 2026</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon bleu"><i class="ti ti-school" aria-hidden="true"></i></div>
+        <div class="cert-info">
+          <div class="cert-name">BAPES — Brevet d'Aptitude au Professorat</div>
+          <div class="cert-org">UNSTIM — École Normale Supérieure de Natitingou</div>
+        </div>
+        <div class="cert-date">2025</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon or"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+        <div class="cert-info">
+          <div class="cert-name">LaTeX scientifique</div>
+          <div class="cert-org">Maîtrise de la composition de documents techniques</div>
+        </div>
+        <div class="cert-date">2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets" style="background:var(--surface)">
+  <div class="section-inner">
+    <div class="section-title"><i class="ti ti-rocket" aria-hidden="true"></i>Projets</div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-bleu"><i class="ti ti-file-invoice" aria-hidden="true"></i></div>
+        <div>
+          <div class="project-name">Proformat</div>
+          <div class="project-tech">Application web de gestion de documents</div>
+        </div>
+      </div>
+      <div class="project-desc">Système de commande et de gestion de documents (LaTeX, Word) avec upload de fichiers, workflows de statut, confirmations par email et interface d'administration avec badges colorés.</div>
+      <div class="tech-tags">
+        <span class="tech-tag">PHP procédural</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">HTML/CSS</span>
+        <span class="tech-tag">XAMPP</span>
+        <span class="tech-tag">Laravel 11 (migration en cours)</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-vert"><i class="ti ti-plant" aria-hidden="true"></i></div>
+        <div>
+          <div class="project-name">AgriSense</div>
+          <div class="project-tech">Concept IA — Détection de maladies agricoles</div>
+        </div>
+      </div>
+      <div class="project-desc">Projet en conception : système de détection de maladies foliaires par photos smartphone, basé sur des réseaux de neurones convolutifs (CNN). Destiné aux agriculteurs béninois en zone rurale, avec déploiement hors-ligne envisagé.</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">CNN</span>
+        <span class="tech-tag">PlantVillage dataset</span>
+        <span class="tech-tag">Machine Learning</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-icon pi-or"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <div>
+          <div class="project-name">Teranga Hotels</div>
+          <div class="project-tech">Plateforme de gestion hôtelière</div>
+        </div>
+      </div>
+      <div class="project-desc">Conception d'une plateforme complète de gestion hôtelière avec architecture monorepo, système de design et feuille de route Phase 1.</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Architecture monorepo</span>
+        <span class="tech-tag">Design system</span>
+        <span class="tech-tag">PHP/MySQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-title"><i class="ti ti-address-book" aria-hidden="true"></i>Contact</div>
+    <div class="contact-card">
+      <div class="contact-row">
+        <i class="ti ti-phone" aria-hidden="true"></i>
+        <span>(+229) 01 54 01 10 40 / 01 68 45 56 25</span>
+      </div>
+      <div class="contact-row">
+        <i class="ti ti-mail" aria-hidden="true"></i>
+        <a href="mailto:elyseeavogbe03@gmail.com">elyseeavogbe03@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
+        <span>Natitingou, Bénin</span>
+      </div>
+      <div class="contact-row">
+        <i class="ti ti-language" aria-hidden="true"></i>
+        <span>Français (courant) · Fon (maternel) · Mahi (maternel) · Anglais (intermédiaire)</span>
+      </div>
+      <div class="contact-row">
+        <i class="ti ti-download" aria-hidden="true"></i>
+        <a href="cv_general_avogbe.pdf" download>Télécharger le CV complet (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Elysée Dètondji AVOGBE · Natitingou, Bénin · 2026
+</footer>
+
+</body>
+</html>
